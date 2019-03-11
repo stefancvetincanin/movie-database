@@ -5,13 +5,17 @@ const postUrl = "https://baza-filmova.herokuapp.com/dodaj-film/"
 const deleteUrl = "https://baza-filmova.herokuapp.com/obrisi-film/"
 let stringUpis = ""
 
-const rezultatDiv = s(rezultat)
+const rezultatDiv = s("rezultat")
 
 fetch(getUrl)
   .then( response => response.json() )
   .then( function (response) {
     console.log(response)
     for( let i = 0; i < 10; i++) {
-      stringUpis += response[i].naslov
+      stringUpis += `
+      <img src="${response[i].slika}" alt="" width="100">
+        ${response[i].naziv}<br>
+      `
     }
+    rezultatDiv.innerHTML = stringUpis
   })
