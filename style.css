@@ -12,8 +12,13 @@ h2 {
   position: absolute;
   top: 40px;
 margin-left: 20px;
-
 }
+
+.strelica {
+  width: 30px;
+  height: 30px;
+}
+
 .grid-container {
     display: grid;
     grid-template-areas:
