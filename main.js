@@ -14,8 +14,8 @@ fetch(getUrl)
     console.log(response)
     for (let i = 0; i < 10; i++) {
       stringUpis += `
-      <img src="${response[i].slika}" alt="" width="100">
-        ${response[i].naziv}<br>
+     <div class="film-info"><img src="${response[i].slika}" alt="" height="400px">
+        <p>${response[i].naziv}</p></div>
       `
     }
     rezultatDiv.innerHTML = stringUpis
