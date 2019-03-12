@@ -51,8 +51,9 @@ function prikazi(rezultati) {
   stringUpis = ""
   for (let i = 0; i < rezultati.length; i++) {
     stringUpis += `
-      <div class="film-info"><img src="${rezultati[i].slika}" alt="" width="100">
-      <p>${rezultati[i].naziv}</p></div>
+      <div class="film-info"><img src="${rezultati[i].slika}" alt="" height="400">
+      <p>${rezultati[i].naziv}</p>
+      <p>${rezultati[i].godina}</p></div>
       `
   }
   rezultatDiv.innerHTML = stringUpis
@@ -65,7 +66,7 @@ fetch(getUrl)
     console.log(response)
     for (let i = 0; i < rezultati.length; i++) {
       stringUpis += `
-      <div class="film-info"><img src="${rezultati[i].slika}" alt="" width="100">
+      <div class="film-info"><img src="${rezultati[i].slika}" alt="" height="400">
       <p>${rezultati[i].naziv}</p>
       <p>${rezultati[i].godina}</p>
       </div>
