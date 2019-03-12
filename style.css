@@ -1,6 +1,66 @@
-.item1 { grid-area: header;}
-.item2 { grid-area: main; }
-.item3 { grid-area: footer; }
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+  user-select: none;
+  font-family: "Roboto";
+}
+
+.item1 {
+  grid-area: header;
+}
+
+.item2 {
+  grid-area: main;
+}
+
+.item3 {
+  grid-area: footer;
+}
+
+body {
+  background-color: mediumspringgreen;
+  font-family: "Roboto";
+}
+
+label {
+  position: relative;
+  top: 4px;
+}
+
+form {
+  margin-left: 60px;
+}
+
+#preview {
+  position: relative;
+  top: -45%;
+  left: 45%;
+  height: 250px;
+  width: 250px;
+  border-radius: 8px;
+  padding: 5px;
+  box-shadow: inset 2px 2px 4px 4px #888;
+}
+
+input[type=text] {
+  background-color: white;
+  display: inline;
+  outline: none;
+  border: 0px solid;
+  height: 30px;
+  width: 300px;
+  border-radius: 8px;
+  padding-left: 10px;
+  box-shadow: inset 1px 1px 2px 2px #888;
+}
+
+input:hover {
+  box-shadow: inset 2px 2px 1px 1px #888;
+}
 
 #logo {
   height: 150px;
@@ -10,57 +70,61 @@
 h2 {
   display: inline;
   position: absolute;
-  top: 40px;
-margin-left: 20px;
+  top: 60px;
+  margin-left: 20px;
 }
 
 .strelica {
   width: 30px;
   height: 30px;
+  position: relative;
+  top: 5px;
+  border: #888 solid 2px;
+  border-radius: 50%;
+}
+
+.strelica:hover {
+  border: black solid 2px;
+  border-radius: 50%;
 }
 
 .grid-container {
-    display: grid;
-    grid-template-areas:
-      'header'
-      'main'
-      'footer';
-    grid-gap: 10px;
-    padding: 10px;
-    
-  }
-  
-  .grid-container > div {
-    background-color: rgba(255, 255, 255);
-    text-align: left;
-    padding: 10px 0;
-    font-size: 30px;
-  }
+  display: grid;
+  grid-template-areas: 'header' 'main' 'footer';
+  grid-gap: 10px;
+  padding: 10px;
+}
 
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-  }
-  
-  li {
-    float: left;
-  }
-  
-  li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  li a:hover:not(.active) {
-    background-color: #111;
-  }
-  
-  .active {
-    background-color: green;
-  }
+.grid-container>div {
+  text-align: left;
+  padding: 10px 0;
+  font-size: 30px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: green;
+}
