@@ -7,6 +7,7 @@
   -o-user-select: none;
   user-select: none;
   font-family: "Roboto";
+  box-sizing: border-box;
 }
 
 .item1 {
@@ -33,6 +34,25 @@ label {
 
 form {
   margin-left: 60px;
+}
+
+#rezultat {
+  width: 100%;
+  text-align: center;
+}
+
+.film-info {
+  width: 25%;
+  float: left;
+  height: 500px;
+}
+
+.film-info:hover {
+  padding: 10px;
+}
+
+#text {
+  text-align: center;
 }
 
 #preview {
