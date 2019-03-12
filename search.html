@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Pronadji film</title>
-  <link rel="stylesheet" href="../movie-database/style.css">
+  <link rel="stylesheet" href="../movie-database-master/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -25,11 +27,14 @@
     <div class="item2">
       <form id="search-movies">
         <label for="title">Naslov:</label>
-        <input type="text" id="title"><br><br>
-        Poredjaj po godini: <img src="../movie-database/images/strelica gore.png" alt="strelica" id="strelicagore" class="strelica">
-        <img src="../movie-database/images/strelica dole.png" alt="strelica" id="strelicadole" class="strelica"> <br><br>
-        Poredjaj po naslovu: <img src="../movie-database/images/strelica gore.png" alt="strelica" id="strelicagore" class="strelica">
-        <img src="../movie-database/images/strelica dole.png" alt="strelica" id="strelicadole" class="strelica">
+        <input type="text" id="title" placeholder="Unesite naziv filma" onfocus="this.placeholder= ''"><br><br>
+        Poredjaj po godini: <img src="../movie-database/images/strelica gore.png" alt="strelica" id="godinaGore"
+          class="strelica">
+        <img src="../movie-database/images/strelica dole.png" alt="strelica" id="godinaDole" class="strelica">
+        <br><br>
+        Poredjaj po naslovu: <img src="../movie-database/images/strelica gore.png" alt="strelica" id="naslovGore"
+          class="strelica">
+        <img src="../movie-database/images/strelica dole.png" alt="strelica" id="naslovDole" class="strelica">
       </form> <br>
 
       <div id="rezultat">ovde ide preview filmova</div>

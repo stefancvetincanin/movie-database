@@ -1,3 +1,4 @@
+
 const s = selektor => document.getElementById(selektor)
 const getUrl = "https://baza-filmova.herokuapp.com/filmovi/"
 const getNaslov = "https://baza-filmova.herokuapp.com/pokazi-film/5be9da410f0a326f85bd120f"
@@ -8,10 +9,10 @@ let stringUpis = ""
 const rezultatDiv = s("rezultat")
 
 fetch(getUrl)
-  .then( response => response.json() )
-  .then( function (response) {
+  .then(response => response.json())
+  .then(function (response) {
     console.log(response)
-    for( let i = 0; i < 10; i++) {
+    for (let i = 0; i < 10; i++) {
       stringUpis += `
       <img src="${response[i].slika}" alt="" width="100">
         ${response[i].naziv}<br>
@@ -19,3 +20,7 @@ fetch(getUrl)
     }
     rezultatDiv.innerHTML = stringUpis
   })
+
+$('[name="thumbnail"]').on('change', function () {
+  $('img.preview').prop('src', this.value);
+});
