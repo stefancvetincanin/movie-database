@@ -23,27 +23,29 @@
         <li><a class="active" href="add-movie.html">DODAJ FILM</a></li>
       </ul>
     </div>
-    <div class="item2">
-      <form id="add-movie">
-        <label for="naziv">Naziv filma:</label>
-        <br>
-        <input type="text" id="naziv" placeholder="Unesite naziv filma" onfocus="this.placeholder= ''">
-        <br><br>
-        <label for="godina">Godina:</label>
-        <br>
-        <input type="text" id="godina" placeholder="Unesite godinu" onfocus="this.placeholder= ''">
-        <br><br>
-        <label for="slika">URL:</label>
-        <br>
-        <input type="text" id="slika" name="thumbnail" placeholder="Unesite URL" onfocus="this.placeholder= ''">
-      </form>
-    
-          <div id="preview">
-          <img src="" alt="preview" class="preview" height="250px" width="250px">
-          </div>
+    <div class="item2" id="item2">
+      <div class="add-movie">
+        <form id="add-movie">
+          <label for="naziv">Naziv filma:</label>
+          <br>
+          <input type="text" id="naziv" placeholder="Unesite naziv filma" onfocus="this.placeholder= ''">
+          <br>
+          <label for="godina">Godina:</label>
+          <br>
+          <input type="text" id="godina" placeholder="Unesite godinu" onfocus="this.placeholder= ''">
+          <br>
+          <label for="slika">URL:</label>
+          <br>
+          <input type="text" id="slika" name="thumbnail" placeholder="Unesite URL" onfocus="this.placeholder= ''">
+        </form>
+      </div>
+      <div id="preview">
+        <img src="" alt="preview" class="preview" height="250px" width="250px">
+      </div>
+
     </div>
 
-    <div class="item3">Copyright</div>
+    <div class="item3"></div>
   </div>
   <script src="main.js"></script>
 </body>
