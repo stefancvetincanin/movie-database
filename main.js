@@ -90,6 +90,18 @@ fetch(getUrl)
     // console.log(response)
     prikazi(rezultati)
     rezultatiZaPrikaz = rezultati
+
+    // console.log(response)
+    // for (let i = 0; i < rezultati.length; i++) {
+    //   stringUpis += `
+    //   <div class="film-info"><img src="${rezultati[i].slika}" alt="" width="300" height="400">
+    //   <p>${rezultati[i].naziv}</p>
+    //   <p>${rezultati[i].godina}</p>
+    //   </div>
+    //   `
+    // }
+    // rezultatDiv.innerHTML = stringUpis
+    
     $("#loader-gif").hide()
   })
 

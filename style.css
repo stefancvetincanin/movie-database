@@ -16,6 +16,12 @@
 
 .item2 {
   grid-area: main;
+  width: 100%;
+}
+
+#item2 {
+  display: flex;
+  justify-content: center;
 }
 
 .item3 {
@@ -32,10 +38,6 @@ label {
   top: 4px;
 }
 
-form {
-  margin-left: 60px;
-}
-
 #rezultat {
   width: 100%;
   text-align: center;
@@ -44,11 +46,12 @@ form {
 .film-info {
   width: 25%;
   float: left;
-  height: 500px;
+  height: 550px;
 }
 
 .film-info:hover {
   padding: 10px;
+  cursor: pointer;
 }
 
 #text {
@@ -56,14 +59,15 @@ form {
 }
 
 #preview {
-  position: relative;
-  top: -45%;
-  left: 45%;
-  height: 250px;
-  width: 250px;
+  height: 300px;
+  width: 300px;
   border-radius: 8px;
   padding: 5px;
   box-shadow: inset 2px 2px 4px 4px #888;
+}
+
+.add-movie {
+  width: 30%;
 }
 
 input[type=text] {
@@ -72,7 +76,6 @@ input[type=text] {
   outline: none;
   border: 0px solid;
   height: 30px;
-  width: 300px;
   border-radius: 8px;
   padding-left: 10px;
   box-shadow: inset 1px 1px 2px 2px #888;
@@ -106,12 +109,12 @@ h2 {
 .strelica:hover {
   border: black solid 2px;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .grid-container {
   display: grid;
   grid-template-areas: 'header' 'main' 'footer';
-  grid-gap: 10px;
   padding: 10px;
 }
 
@@ -127,6 +130,7 @@ ul {
   padding: 0;
   overflow: hidden;
   background-color: #333;
+  border-radius: 5px;
 }
 
 li {
@@ -155,14 +159,105 @@ li a:hover:not(.active) {
   top: 5px;
 }
 
-.modal {
-  position: fixed;
-  top: 50%;
-  left:50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  display: none;
-  /* height: 200px;
-  width: 200px; */
-  background: white;
+@media screen and (max-width: 1260px) {
+  .film-info {
+    width: 50%;
+    float: left;
+    height: 550px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .add-movie {
+    margin: 0 auto;
+    text-align: center;
+  }
+  #item2 {
+    display: inline;
+  }
+  #preview {
+    margin: 0 auto;
+    margin-top: 20px;
+    display: block;
+    height: 250px;
+    width: 250px;
+    border-radius: 8px;
+    padding: 5px;
+    box-shadow: inset 2px 2px 4px 4px #888;
+    position: relative;
+  }
+  li {
+    float: none;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .film-info {
+    width: 100%;
+    float: left;
+    height: 550px;
+  }
+  ul {
+    text-align: center;
+  }
+  li {
+    text-align: center;
+    float: none;
+  }
+  .grid-container>div {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 30px;
+  }
+  h2 {
+    display: none;
+  }
+  .item2 {
+    position: relative;
+  }
+  #preview {
+    display: block;
+    height: 250px;
+    width: 250px;
+    border-radius: 8px;
+    padding: 5px;
+    box-shadow: inset 2px 2px 4px 4px #888;
+    position: relative;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  #preview {
+    display: block;
+    height: 250px;
+    width: 250px;
+    border-radius: 8px;
+    padding: 5px;
+    box-shadow: inset 2px 2px 4px 4px #888;
+    position: relative;
+  }
+  label {
+    width: 100%;
+  }
+  .add-movie {
+    margin: 0;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  h2 {
+    display: none;
+  }
+  .film-info {
+    width: 100%;
+    float: left;
+    height: 550px;
+  }
+  label {
+    width: 100%;
+  }
+  .grid-container {
+    padding: 0;
+  }
 }
