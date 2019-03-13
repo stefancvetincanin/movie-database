@@ -12,7 +12,6 @@
 </head>
 
 <body>
-
   <div class="grid-container">
     <div class="item1">
       <img src="images/slika.svg" alt="slika" srcset="" id="logo">
@@ -29,14 +28,27 @@
         <label for="title">Naslov:</label>
         <input type="text" id="title" placeholder="Unesite naziv filma" onfocus="this.placeholder= ''"><img class="loader-gif"
           id="loader-gif" src="images/loader.gif" alt="A loader gif" width="25"> <br><br>
-        Poredjaj po godini: <img src="../movie-database/images/strelica gore.png" alt="strelica" id="godinaGore" class="strelica">
-        <img src="../movie-database/images/strelica dole.png" alt="strelica" id="godinaDole" class="strelica">
+        Poredjaj po godini: <img src="images/strelica gore.png" alt="strelica" id="godinaGore" class="strelica">
+        <img src="images/strelica dole.png" alt="strelica" id="godinaDole" class="strelica">
         <br><br>
-        Poredjaj po naslovu: <img src="../movie-database/images/strelica gore.png" alt="strelica" id="naslovGore" class="strelica">
-        <img src="../movie-database/images/strelica dole.png" alt="strelica" id="naslovDole" class="strelica">
+        Poredjaj po naslovu: <img src="images/strelica gore.png" alt="strelica" id="naslovGore" class="strelica">
+        <img src="images/strelica dole.png" alt="strelica" id="naslovDole" class="strelica">
+        <select id="broj-prikaza" class="broj-prikaza">
+          <option value="all" selected>All</option>
+          <option value="4">4</option>
+          <option value="8">8</option>
+          <option value="12">12</option>
+        </select>
       </form> <br>
 
       <div id="rezultat"></div>
+      <br>
+      <select id="broj-prikaza2" class="broj-prikaza2">
+        <option value="all" selected>All</option>
+        <option value="4">4</option>
+        <option value="8">8</option>
+        <option value="12">12</option>
+      </select>
     </div>
 
     <div class="item3">Copyright</div>

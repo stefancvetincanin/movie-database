@@ -154,3 +154,15 @@ li a:hover:not(.active) {
   left: 10px;
   top: 5px;
 }
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left:50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  display: none;
+  /* height: 200px;
+  width: 200px; */
+  background: white;
+}

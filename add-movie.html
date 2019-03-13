@@ -24,18 +24,20 @@
       </ul>
     </div>
     <div class="item2">
-      <form id="add-movie">
+      <form id="add-movie" action="https://baza-filmova.herokuapp.com/dodaj-film/" method="POST">
         <label for="naziv">Naziv filma:</label>
         <br>
-        <input type="text" id="naziv" placeholder="Unesite naziv filma" onfocus="this.placeholder= ''">
+        <input type="text" id="naziv" name="naziv" placeholder="Unesite naziv filma" onfocus="this.placeholder= ''">
         <br><br>
         <label for="godina">Godina:</label>
         <br>
-        <input type="text" id="godina" placeholder="Unesite godinu" onfocus="this.placeholder= ''">
+        <input type="text" id="godina" name="godina" placeholder="Unesite godinu" onfocus="this.placeholder= ''">
         <br><br>
         <label for="slika">URL:</label>
         <br>
-        <input type="text" id="slika" name="thumbnail" placeholder="Unesite URL" onfocus="this.placeholder= ''">
+        <input type="text" id="slika" name="slika" placeholder="Unesite URL" onfocus="this.placeholder= ''">
+        <input type="submit" class="submit-button">
+        <input type="reset" class="reset-button">
       </form>
     
           <div id="preview">
