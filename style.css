@@ -245,7 +245,7 @@ li a:hover:not(.active) {
   }
 }
 
-media screen and (max-width: 321px) {
+@media screen and (max-width: 321px) {
   h2 {
     display: none;
   }
