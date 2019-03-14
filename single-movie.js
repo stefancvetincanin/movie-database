@@ -24,8 +24,8 @@ function render(nasFilm) {
     if ((nasFilm[0].comments !== undefined) && (nasFilm[0].comments !== null)) {
         nasFilm[0].comments.forEach(element => {
             stringKomentari += `
-                ${element.user}:<br>
-                ${element.comment}<br>
+                <p class="comment-user-name">${element.user}:</p>
+                <p class="comment-user-review">${element.comment}</p>
             `
         });
         stringPrikaz = `
@@ -65,7 +65,7 @@ fetch(getUrl)
             } else return false
         })
         // fetch plot info-a
-        fetch(`http://www.omdbapi.com/?t=${nasFilm[0].naziv}&y=${nasFilm[0].godina}&plot=full&apikey=${apiKey}`)
+        fetch(`https://www.omdbapi.com/?t=${nasFilm[0].naziv}&y=${nasFilm[0].godina}&plot=full&apikey=${apiKey}`)
             .then(omdb => omdb.json())
             .then(omdb => {
                 omdbInfo = omdb

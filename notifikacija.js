@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  const ws = new WebSocket('ws://baza-filmova.herokuapp.com')
+  const ws = new WebSocket('wss://baza-filmova.herokuapp.com')
   ws.addEventListener('message', e => {
     console.log(e.data) // TODO: prikazati notifikaciju u headeru
     $("#notifikacija").slideDown()
