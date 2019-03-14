@@ -190,6 +190,7 @@ naziv.addEventListener("input", function () {
   )
   rezultatiZaPrikaz = prikazNaziv
   rezultatiTemp = prikazNaziv
+  mnozilacStranice = 1
   prikazi(prikazNaziv)
 })
 
