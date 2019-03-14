@@ -17,11 +17,14 @@
 .item2 {
   grid-area: main;
   width: 100%;
+  
 }
 
 #item2 {
   display: flex;
   justify-content: center;
+  
+  
 }
 
 .item3 {
@@ -30,9 +33,12 @@
   display: flex;
   justify-content: center;
   margin-top: 30px;
-  bottom: 0;
+  bottom: 0px;
+  
 }
-
+#treca-strana-footer {
+  position: absolute;
+}
 body {
   background-color: mediumspringgreen;
   font-family: "Roboto";
@@ -52,7 +58,7 @@ label {
   background-color: white;
   border-radius: 5px;
   height: 30px;
-  width: 80px;
+  width: 96px;
 }
 
 .broj-prikaza {
@@ -86,8 +92,9 @@ label {
   cursor: pointer;
 }
 
-.film-info:hover {
+.movie-thumb:hover {
   padding: 10px;
+  transition-duration: 0.1s;
 }
 
 #text {
@@ -97,13 +104,13 @@ label {
 #preview {
   height: 300px;
   width: 300px;
-  border-radius: 8px;
-  padding: 5px;
-  box-shadow: inset 1px 1px 2px 2px #888;
+  border: #888 1px solid;
+  background-color: white;
 }
 
 .add-movie {
   width: 30%;
+margin-bottom: 150px;
 }
 
 input[type=text] {
@@ -144,6 +151,7 @@ input[type=url] {
 
 input:hover, .broj-prikaza:hover, .broj-prikaza2:hover {
   box-shadow: inset 2px 2px 1px 1px #888;
+  transition-duration: 0.3s;
 }
 
 #logo {
@@ -198,6 +206,7 @@ h6 {
   border: black solid 2px;
   border-radius: 50%;
   cursor: pointer;
+  transition-duration: 0.5s;
 }
 
 .grid-container {
@@ -235,6 +244,8 @@ li a {
 
 li a:hover:not(.active) {
   background-color: #111;
+  transition: ease-in;
+  transition-duration: 0.2s;
 }
 
 .active {
@@ -265,6 +276,7 @@ li a:hover:not(.active) {
   padding-left: 100px;
   padding-right: 100px;
 }
+
 .invisible-spoiler {
   display: none;
 }
@@ -287,6 +299,8 @@ li a:hover:not(.active) {
 .pages {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 .page-selector {
@@ -300,6 +314,7 @@ li a:hover:not(.active) {
 
 .page-selector:hover {
   background-color: rgb(202, 193, 193);
+  transition-duration: 0.5s;
 }
 
 .active-selector {
@@ -358,9 +373,7 @@ li a:hover:not(.active) {
     display: block;
     height: 250px;
     width: 250px;
-    border-radius: 8px;
-    padding: 5px;
-    box-shadow: inset 2px 2px 4px 4px #888;
+    border: #888 1px solid;
     position: relative;
   }
   li {
@@ -370,10 +383,11 @@ li a:hover:not(.active) {
     background-color: white;
     border-radius: 5px;
     height: 30px;
-    width: 80px;
+    width: 100px;
     display: block;
     margin: 0 auto;
     margin-top: 10px;
+
   }
 }
 
@@ -405,9 +419,7 @@ li a:hover:not(.active) {
     display: block;
     height: 250px;
     width: 250px;
-    border-radius: 8px;
-    padding: 5px;
-    box-shadow: inset 2px 2px 4px 4px #888;
+    border: #888 1px solid;
     position: relative;
   }
 }
@@ -417,9 +429,7 @@ li a:hover:not(.active) {
     display: block;
     height: 250px;
     width: 250px;
-    border-radius: 8px;
-    padding: 5px;
-    box-shadow: inset 2px 2px 4px 4px #888;
+    border: #888 1px solid;
     position: relative;
   }
   #item3 {
