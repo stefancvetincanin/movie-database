@@ -43,28 +43,40 @@
       <div id="preview">
         <img src="" alt="preview" class="preview" height="250px" width="250px">
       </div> -->
-    <div class="item2" id="item2">
-      <div class="add-movie">
-        <form id="add-movie" action="https://baza-filmova.herokuapp.com/dodaj-film/" method="POST">
-          <label for="naziv">Naziv filma:</label>
-          <br>
-          <input type="text" id="naziv" name="naziv" placeholder="Unesite naziv filma" onfocus="this.placeholder= ''">
-          <br>
-          <label for="godina">Godina:</label>
-          <br>
-          <input type="text" id="godina" name="godina" placeholder="Unesite godinu" onfocus="this.placeholder= ''">
-          <br>
-          <label for="slika">URL:</label>
-          <br>
-          <input type="text" id="slika" name="slika" placeholder="Unesite URL" onfocus="this.placeholder= ''">
-          <input type="submit" class="submit-button">
-          <input type="reset" class="reset-button">
-        </form>
-      </div>
-      <div id="preview">
-        <img src="" alt="preview" class="preview" height="250px" width="250px">
+      <div class="item2" id="item2">
+        <div class="add-movie">
+          <form id="add-movie" action="https://baza-filmova.herokuapp.com/dodaj-film/" method="POST">
+            <label for="naziv">Naziv filma:</label>
+            <br>
+            <input type="text" id="naziv" name="naziv" placeholder="Unesite naziv filma" onfocus="this.placeholder= ''" required>
+            <br>
+            <label for="godina">Godina:</label>
+            <br>
+            <input type="number" id="godina" name="godina" placeholder="Unesite godinu" onfocus="this.placeholder= ''" required min="1900" max="2050">
+            <br>
+            <label for="slika">URL:</label>
+            <br>
+            <input type="url" id="slika" name="slika" placeholder="Unesite URL" onfocus="this.placeholder= ''" required>
+            <input type="submit" class="submit-button">
+            <input type="reset" class="reset-button">
+          </form>
+        </div>
+        <div id="preview">
+          <img src="" alt="preview" class="preview" height="300px" width="300px">
+        </div>
+
       </div>
 
+      <div class="item3">
+          <div class="logo">
+              <h6><i>Stefan Cvetičanin</i></h6> <a href="https://github.com/stefancvetincanin" target="blank"> <img src="../movie-database/images/logo.svg" alt="gitlink"
+                  width="50px" height="50px" id="git-logo"></a>
+          </div>
+          <div class="logo">
+              <h6><i>Nemanja Burazer</i></h6> <a href="https://github.com/nemanjaburazer" target="blank"> <img src="../movie-database/images/logo.svg" alt="gitlink" width="50px"
+                  height="50px" id="git-logo"></a>
+          </div>
+      </div>
     </div>
 
     <div class="item3"></div>
