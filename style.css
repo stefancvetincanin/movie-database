@@ -265,6 +265,68 @@ li a:hover:not(.active) {
   padding-left: 100px;
   padding-right: 100px;
 }
+.invisible-spoiler {
+  display: none;
+}
+
+.notifikacija {
+  position: absolute;
+  top: 0px;
+  right: 200px;
+  padding: 10px 20px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: 1px solid black;
+  background-color: mediumspringgreen;
+}
+
+.notifikacija-invisible {
+  display: none;
+}
+
+.pages {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.page-selector {
+  padding: 5px;
+  border: 1px solid black;
+  margin-right: 4px;
+  background-color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.page-selector:hover {
+  background-color: rgb(202, 193, 193);
+}
+
+.active-selector {
+  background-color: rgb(224, 223, 223);
+}
+
+.delete-div {
+  display: none;
+}
+
+.delete-button {
+  cursor: pointer;
+  display: block;
+}
+
+.delete-container {
+  background: white;
+}
+
+.submit-del {
+  width: 52px;
+  height: 52px;
+  background: white url("https://img.icons8.com/ios/50/000000/cancel-filled.png");
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+}
 
 @media screen and (max-width: 1260px) {
   .film-info {

@@ -14,10 +14,12 @@ const naslovDole = s("naslovDole")
 const naziv = s("title")
 const brojPrikaza = s("broj-prikaza")
 const brojPrikaza2 = s("broj-prikaza2")
+const pagesDiv = s("pages")
 
 let rezultati = []
 let rezultatiTemp = []
 let rezultatiZaPrikaz = []
+let mnozilacStranice = 1
 
 function uporediGG(a, b) {
   if (a.godina < b.godina)
@@ -36,17 +38,17 @@ function uporediGD(b, a) {
 }
 
 function uporediNG(a, b) {
-  if (a.naziv.toLowerCase() < b.naziv.toLowerCase())
+  if (a.naziv.toLowerCase().trim() < b.naziv.toLowerCase().trim())
     return -1;
-  if (a.naziv.toLowerCase() > b.naziv.toLowerCase())
+  if (a.naziv.toLowerCase().trim() > b.naziv.toLowerCase().trim())
     return 1;
   return 0;
 }
 
 function uporediND(b, a) {
-  if (a.naziv.toLowerCase() < b.naziv.toLowerCase())
+  if (a.naziv.toLowerCase().trim() < b.naziv.toLowerCase().trim())
     return -1;
-  if (a.naziv.toLowerCase() > b.naziv.toLowerCase())
+  if (a.naziv.toLowerCase().trim() > b.naziv.toLowerCase().trim())
     return 1;
   return 0;
 }
@@ -58,56 +60,105 @@ function prikazi(rezultati) {
       display = rezultati.length
       break
     case 1:
-      display = 4
-      break
-    case 2:
       display = 8
       break
-    case 3:
+    case 2:
       display = 12
+      break
+    case 3:
+      display = 16
       break
     default:
       break
   }
-  if (display > rezultati.length) display = rezultati.length
-  console.log(display)
+
   stringUpis = ""
-  for (let i = 0; i < display; i++) {
-    stringUpis += `
-      <div class="film-info"><a href="single-movie.html?_id=${rezultati[i]._id}" target="_blank"><img src="${rezultati[i].slika}" alt="" width="300" height="400"  class="movie-thumb" data-id="${rezultati[i]._id}"></a>
-      <p>${rezultati[i].naziv}</p>
-      <p>${rezultati[i].godina}</p></div>
+  if (display > rezultati.length) display = rezultati.length
+
+  if (brojPrikaza.selectedIndex !== 0) {
+    let brojStranica = prikaziSelektore(rezultati.length, display)
+    let brojac = 0
+    if (mnozilacStranice > 1) {
+      brojac = (mnozilacStranice * display) - display
+    }
+    console.log("Broj Stranica " + brojStranica)
+    console.log("Mnozilac: " + mnozilacStranice)
+    for (let i = brojac; i < mnozilacStranice * display; i++) {
+      if (rezultati[i] !== undefined) {
+        stringUpis += `
+        <div class="film-info">
+          <a href="single-movie.html?_id=${rezultati[i]._id}" target="_blank">
+            <img src="${rezultati[i].slika}" alt="" width="300" height="400"  class="movie-thumb" data-id="${rezultati[i]._id}">
+          </a>
+          <p>${rezultati[i].naziv}</p>
+          <p>${rezultati[i].godina}</p>
+        </div>
       `
+
+        rezultatDiv.innerHTML = stringUpis
+
+        $(`.page-selector:nth-child(${mnozilacStranice})`).addClass("active-selector")
+        $(`.page-selector:nth-child(${mnozilacStranice})`).siblings().removeClass("active-selector")
+      }
+    }
+  } else {
+    pagesDiv.innerHTML = `<div class="page-selector active-selector">1</div>`
+    for (let i = 0; i < display; i++) {
+      stringUpis += `
+        <div class="film-info">
+          <a href="single-movie.html?_id=${rezultati[i]._id}" target="_blank">
+            <img src="${rezultati[i].slika}" alt="" width="300" height="400"  class="movie-thumb" data-id="${rezultati[i]._id}">
+          </a>
+          <p>${rezultati[i].naziv}</p>
+          <p>${rezultati[i].godina}</p>
+        </div>
+      `
+    }
+    rezultatDiv.innerHTML = stringUpis
   }
-  rezultatDiv.innerHTML = stringUpis
+
+  // for (let i = 0; i < display; i++) {
+  //   stringUpis += `
+  //     <div class="film-info">
+  //       <a href="single-movie.html?_id=${rezultati[i]._id}" target="_blank">
+  //         <img src="${rezultati[i].slika}" alt="" width="300" height="400"  class="movie-thumb" data-id="${rezultati[i]._id}">
+  //       </a>
+  //       <p>${rezultati[i].naziv}</p>
+  //       <p>${rezultati[i].godina}</p>
+  //     </div>
+  //   `
+  // }
+  // rezultatDiv.innerHTML = stringUpis
 }
 
+function prikaziSelektore(duzinaNiza, displayPoStrani) {
+  let pagesString = `<div class="page-selector active-selector">1</div>`
+  let brojStranica = Math.floor(duzinaNiza / displayPoStrani)
+  if (duzinaNiza % displayPoStrani !== 0) brojStranica++
+  // console.log(brojStranica)
+  for (let i = 1; i < brojStranica; i++) {
+    pagesString += `<div class="page-selector">${i + 1}</div>`
+  }
+  pagesDiv.innerHTML = pagesString
+
+  $(".page-selector").on("click", function () {
+    mnozilacStranice = Number($(this).html())
+    prikazi(rezultatiZaPrikaz)
+    // $(this).addClass("active-selector")
+    // $(this).siblings().removeClass("active-selector")
+  })
+
+  return brojStranica
+}
 
 fetch(getUrl)
   .then(response => response.json())
   .then(function (response) {
     rezultati = rezultatiTemp = response
-    // console.log(response)
     prikazi(rezultati)
     rezultatiZaPrikaz = rezultati
-
-    // console.log(response)
-    // for (let i = 0; i < rezultati.length; i++) {
-    //   stringUpis += `
-    //   <div class="film-info"><img src="${rezultati[i].slika}" alt="" width="300" height="400">
-    //   <p>${rezultati[i].naziv}</p>
-    //   <p>${rezultati[i].godina}</p>
-    //   </div>
-    //   `
-    // }
-    // rezultatDiv.innerHTML = stringUpis
-    
     $("#loader-gif").hide()
   })
-
-$('[name="slika"]').on('change', function () {
-  $('img.preview').prop('src', this.value);
-});
 
 godinaGore.addEventListener("click", function () {
   rezultatiTemp.sort(uporediGG)
@@ -138,16 +189,18 @@ naziv.addEventListener("input", function () {
     film.naziv.toLowerCase().includes(naziv.value.toLowerCase())
   )
   rezultatiZaPrikaz = prikazNaziv
+  rezultatiTemp = prikazNaziv
   prikazi(prikazNaziv)
 })
 
 brojPrikaza.addEventListener("change", function () {
-  // alert("promena " + brojPrikaza.selectedIndex)
   brojPrikaza2.selectedIndex = brojPrikaza.selectedIndex
+  mnozilacStranice = 1
   prikazi(rezultatiZaPrikaz)
 })
 brojPrikaza2.addEventListener("change", function () {
-  // alert("promena " + brojPrikaza.selectedIndex)
   brojPrikaza.selectedIndex = brojPrikaza2.selectedIndex
+  mnozilacStranice = 1
   prikazi(rezultatiZaPrikaz)
 })
+

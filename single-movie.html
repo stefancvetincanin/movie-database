@@ -29,10 +29,30 @@
             <h3>Movie info</h3>
             <div id="movie-prikaz"></div>
         </div>
-            
-        <div class="item3"></div>
+
+        <div class="item3">Copyright</div>
+        <div class="login-div" id="login-div">
+            <form id="login-form" class="login-form">
+                <label for="del-username" class="del-user-lbl">User:</label>
+                <input type="text" id="del-username" placeholder="Username" required><br>
+                <label for="del-password" class="del-pass-lbl">Password:</label>
+                <input type="password" id="del-password" placeholder="Password" required><br>
+                <input type="submit" class="del-submit">
+                <input type="reset" class="del-reset">
+            </form>
+        </div>
+        <div class="delete-div" id="delete-div">
+            <p>Click the below button only if you're absolutely sure you want to delete this movie. There will be no going back!</p>
+            <!-- <input type="submit" value="" class="submit-del" id="submit-del"> -->
+            <button id="delete-container" class="delete-container"><img src="https://img.icons8.com/ios/50/000000/cancel-filled.png" alt="Delete button" class="delete-button" id="delete-button"></button>
+        </div>
+        <div class="notifikacija notifikacija-invisible" id="notifikacija">
+            <p id="notifikacija-text" class="notifikacija-text">Dodat je nov film!</p>
+            <a href=""><button id="notifikacija-close" class="notifikacija-close">Close notification</button></a>
+        </div>
     </div>
     <script src="single-movie.js"></script>
+    <script src="notifikacija.js"></script>
 </body>
 
 </html>
