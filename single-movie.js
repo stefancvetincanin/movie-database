@@ -17,10 +17,16 @@ if (idFilma == "") idFilma = "5be9da410f0a326f85bd120f"
 
 function render(nasFilm) {
     let plotFilma = ""
-    if(omdbInfo.Response == "False") {
-        plotFilma = omdbInfo.Error
-    } else plotFilma = omdbInfo.Plot
-    
+    let director = ""
+    let starring = ""
+    if (omdbInfo.Response == "False") {
+        director = starring = plotFilma = omdbInfo.Error
+    } else {
+        plotFilma = omdbInfo.Plot
+        director = omdbInfo.Director
+        starring = omdbInfo.Actors
+    }
+
     if ((nasFilm[0].comments !== undefined) && (nasFilm[0].comments !== null)) {
         nasFilm[0].comments.forEach(element => {
             stringKomentari += `
@@ -32,6 +38,8 @@ function render(nasFilm) {
         <img src="${nasFilm[0].slika}" class="single-slika">
         <p class="single-naziv">${nasFilm[0].naziv}</p>
         <p class="single-godina">${nasFilm[0].godina}</p>
+        <p class="director">Director: ${director}</p>
+        <p class="starring">Starring: ${starring}</p>
         <button id="spoiler">Synopsis - Spoiler!</button>
         <div id="spoiler-text" class="spoiler-text invisible-spoiler">${plotFilma}</div>
         <p class="single-reviews">Reviews by our users:</p>
@@ -42,6 +50,8 @@ function render(nasFilm) {
         <img src="${nasFilm[0].slika}" class="single-slika">
         <p class="single-naziv">${nasFilm[0].naziv}</p>
         <p class="single-godina">${nasFilm[0].godina}</p>
+        <p class="director">Director: ${director}</p>
+        <p class="starring">Starring: ${starring}</p>
         <button id="spoiler">Synopsis - Spoiler!</button>
         <div id="spoiler-text" class="spoiler-text invisible-spoiler">${plotFilma}</div>
         <p class="single-reviews">This movie has no reviews!</p>
@@ -78,9 +88,9 @@ fetch(getUrl)
 
     })
 
-s("login-form").addEventListener("submit", function(e) {
+s("login-form").addEventListener("submit", function (e) {
     e.preventDefault();
-    if(s("del-username").value == "admin") {
+    if (s("del-username").value == "admin") {
         alert("Successfully logged in!")
         $("#login-div").hide()
         $("#delete-div").show()
@@ -89,12 +99,17 @@ s("login-form").addEventListener("submit", function(e) {
     }
 })
 
-s("delete-button").addEventListener("click", function() {
-    console.log("DELETED")
-    // fetch(`https://baza-filmova.herokuapp.com/obrisi-film/`)
-    // setTimeout(function() {
-    //     document.location.href = newUrl;
-    // }, 3000)
+s("delete-button").addEventListener("click", function () {
+    fetch('https://baza-filmova.herokuapp.com/obrisi-film/', {
+        method: 'delete',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: idFilma })
+    })
+        .then(response => response.text())
+        .then(text => {
+            console.log(text)
+            s("delete-div").innerHTML += `<br>The entry with the ID: ${idFilma} has been successfully deleted.`
+        })
 })
 
 let myObj = {
@@ -104,3 +119,12 @@ let myObj = {
 console.log(myObj);
 
 console.log(JSON.stringify(myObj))
+
+//  brisanje filmova!!!!
+// fetch('https://baza-filmova.herokuapp.com/obrisi-film/', {
+//   method: 'delete',
+//   headers: {'Content-Type': 'application/json'},
+//   body: JSON.stringify({id: '5c894c320f0a326f85d16eee'})
+// })
+//   .then(response => response.text())
+//   .then(text => console.log(text))
