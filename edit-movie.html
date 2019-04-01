@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Uredi film</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+  <div class="grid-container">
+    <div class="item1">
+      <img src="images/slika.svg" alt="slika" srcset="" id="logo">
+      <h2><i>BAZA FILMOVA</i></h2>
+      <ul>
+        <li><a href="index.html">NASLOVNA</a></li>
+        <li><a href="search.html">PRETRAGA</a></li>
+        <li><a href="add-movie.html">DODAJ FILM</a></li>
+      </ul>
+    </div>
+
+    <div class="item2">
+      <p>Edit filma ide ovde</p>
+    </div>
+
+    <div class="item3">
+      <div class="logo">
+        <h6><i>Stefan Cvetinčanin</i></h6> <a href="https://github.com/stefancvetincanin" target="blank"> <img
+            src="images/logo.svg" alt="gitlink" width="50px" height="50px" id="git-logo"></a>
+      </div>
+      <div class="logo">
+        <h6><i>Nemanja Burazer</i></h6> <a href="https://github.com/nemanjaburazer" target="blank"> <img
+            src="images/logo.svg" alt="gitlink" width="50px" height="50px" id="git-logo"></a>
+      </div>
+    </div>
+  </div>
+  <div class="notifikacija notifikacija-invisible" id="notifikacija">
+    <p id="notifikacija-text" class="notifikacija-text">Dodat je nov film!</p>
+    <button id="notifikacija-close" class="notifikacija-close">Close notification</button>
+  </div>
+  <script src="notifikacija.js"></script>
+  <script src="edit-movie.js"></script>
+</body>
+
+</html>

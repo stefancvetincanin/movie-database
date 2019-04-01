@@ -116,26 +116,12 @@ function prikazi(rezultati) {
     }
     rezultatDiv.innerHTML = stringUpis
   }
-
-  // for (let i = 0; i < display; i++) {
-  //   stringUpis += `
-  //     <div class="film-info">
-  //       <a href="single-movie.html?_id=${rezultati[i]._id}" target="_blank">
-  //         <img src="${rezultati[i].slika}" alt="" width="300" height="400"  class="movie-thumb" data-id="${rezultati[i]._id}">
-  //       </a>
-  //       <p>${rezultati[i].naziv}</p>
-  //       <p>${rezultati[i].godina}</p>
-  //     </div>
-  //   `
-  // }
-  // rezultatDiv.innerHTML = stringUpis
 }
 
 function prikaziSelektore(duzinaNiza, displayPoStrani) {
   let pagesString = `<div class="page-selector active-selector">1</div>`
   let brojStranica = Math.floor(duzinaNiza / displayPoStrani)
   if (duzinaNiza % displayPoStrani !== 0) brojStranica++
-  // console.log(brojStranica)
   for (let i = 1; i < brojStranica; i++) {
     pagesString += `<div class="page-selector">${i + 1}</div>`
   }
@@ -144,8 +130,6 @@ function prikaziSelektore(duzinaNiza, displayPoStrani) {
   $(".page-selector").on("click", function () {
     mnozilacStranice = Number($(this).html())
     prikazi(rezultatiZaPrikaz)
-    // $(this).addClass("active-selector")
-    // $(this).siblings().removeClass("active-selector")
   })
 
   return brojStranica
