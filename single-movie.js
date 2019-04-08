@@ -62,6 +62,16 @@ function render(nasFilm) {
     })
 }
 
+function addEditButton() {
+    s("delete-div").innerHTML += 
+        `
+            <button class="delete-container" title="Edit movie">
+                <a href="edit-movie.html?_id=${idFilma}" target="_blank">
+                    <img src="https://img.icons8.com/ios/50/000000/multi-edit-filled.png" alt="Delete button" class="delete-button" id="edit-button">
+                </a>
+            </button>
+        `
+}
 
 fetch(getUrl)
     .then(response => response.json())
@@ -79,10 +89,9 @@ fetch(getUrl)
                 omdbInfo = omdb
                 render(nasFilm)
             })
-
-
-
     })
+
+addEditButton()
 
 s("login-form").addEventListener("submit", function (e) {
     e.preventDefault();
@@ -108,4 +117,3 @@ s("delete-button").addEventListener("click", function () {
         })
 })
 
-console.log(JSON.stringify(myObj))
