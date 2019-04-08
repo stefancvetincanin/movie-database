@@ -14,7 +14,7 @@ fetch(getUrl)
     let max = rezultati.length
     console.log(max);
     let min = 0
-    // generisanje 3 random razlicita broja, do duzine niza filmova
+    // generating 3 random numbers, with a ceiling of movie array length
     for (let i = 0; i < 3; i++) {
       broj[i] = Math.floor(Math.random() * (max - min)) + min
       for (let j = 0; j < broj.length - 1; j++) {
@@ -31,7 +31,6 @@ fetch(getUrl)
         <img src="${rezultati[broj[i]].slika}" alt="Picture of a movie" class="index-slika">
       </a>
       `
-      
     }
     rezultatDiv.innerHTML = stringUpis
   })

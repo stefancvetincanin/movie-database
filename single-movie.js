@@ -11,8 +11,6 @@ let stringKomentari = ""
 let rezultati = []
 let nasFilm
 
-// prikazDiv.innerHTML = "Informacije o filmu"
-
 if (idFilma == "") idFilma = "5be9da410f0a326f85bd120f"
 
 function render(nasFilm) {
@@ -64,6 +62,16 @@ function render(nasFilm) {
     })
 }
 
+function addEditButton() {
+    s("delete-div").innerHTML += 
+        `
+            <button class="delete-container" title="Edit movie">
+                <a href="edit-movie.html?_id=${idFilma}" target="_blank">
+                    <img src="https://img.icons8.com/ios/50/000000/multi-edit-filled.png" alt="Delete button" class="delete-button" id="edit-button">
+                </a>
+            </button>
+        `
+}
 
 fetch(getUrl)
     .then(response => response.json())
@@ -79,14 +87,11 @@ fetch(getUrl)
             .then(omdb => omdb.json())
             .then(omdb => {
                 omdbInfo = omdb
-                // console.log(omdbInfo.Plot)
-
                 render(nasFilm)
             })
-
-
-
     })
+
+addEditButton()
 
 s("login-form").addEventListener("submit", function (e) {
     e.preventDefault();
@@ -112,19 +117,3 @@ s("delete-button").addEventListener("click", function () {
         })
 })
 
-let myObj = {
-    id: idFilma
-}
-
-console.log(myObj);
-
-console.log(JSON.stringify(myObj))
-
-//  brisanje filmova!!!!
-// fetch('https://baza-filmova.herokuapp.com/obrisi-film/', {
-//   method: 'delete',
-//   headers: {'Content-Type': 'application/json'},
-//   body: JSON.stringify({id: '5c894c320f0a326f85d16eee'})
-// })
-//   .then(response => response.text())
-//   .then(text => console.log(text))

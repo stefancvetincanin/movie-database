@@ -21,7 +21,6 @@ s("add-movie").addEventListener("submit", function (e) {
   })
     .then(response => response.text())
     .then(response => {
-      console.log(response)
       s("post-info").innerHTML = response
     })
 })
