@@ -28,7 +28,7 @@ fetch(getUrl)
       console.log(rezultati[broj[i]])
       stringUpis += `
       <a href="single-movie.html?_id=${rezultati[broj[i]]._id}" target="_blank" class="index-slika-link">
-        <img src="${rezultati[broj[i]].slika}" alt="Picture of a movie" class="index-slika">
+        <img src="${rezultati[broj[i]].slika}" alt="Picture of a movie" class="index-slika" width="300" height="400">
       </a>
       `
     }
