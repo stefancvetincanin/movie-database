@@ -10,21 +10,51 @@
   box-sizing: border-box;
 }
 
+*:focus {
+  outline: 0;
+}
+
+.index-slika-link {
+  display: inline;
+  font-size: 0px;
+  margin: 30px;
+}
+
+#login-form {
+  text-align: center;
+}
+
+#slike-filmova {
+  text-align: center;
+  padding: 30px;
+}
+
+.del-submit, .del-reset {
+  background-color: white;
+  border-radius: 5px;
+  height: 30px;
+  width: 96px;
+}
+
 .item1 {
   grid-area: header;
+}
+
+.spoiler-text {
+  text-align: justify;
+  font-size: 20px;
 }
 
 .item2 {
   grid-area: main;
   width: 100%;
-  
+  text-align: justify;
+  padding-top: 30px;
 }
 
 #item2 {
   display: flex;
   justify-content: center;
-  
-  
 }
 
 .item3 {
@@ -34,11 +64,12 @@
   justify-content: center;
   margin-top: 30px;
   bottom: 0px;
-  
 }
+
 #treca-strana-footer {
-  position: absolute;
+  overflow: hidden;
 }
+
 body {
   background-color: mediumspringgreen;
   font-family: "Roboto";
@@ -59,6 +90,12 @@ label {
   border-radius: 5px;
   height: 30px;
   width: 96px;
+}
+
+#spoiler {
+  background-color: white;
+  height: 30px;
+  width: 120px;
 }
 
 .broj-prikaza {
@@ -92,7 +129,7 @@ label {
   cursor: pointer;
 }
 
-.movie-thumb:hover {
+.movie-thumb:hover, .index-slika:hover {
   padding: 10px;
   transition-duration: 0.1s;
 }
@@ -110,12 +147,22 @@ label {
 
 .add-movie {
   width: 30%;
-margin-bottom: 150px;
+  margin-bottom: 150px;
 }
 
 input[type=text] {
   background-color: white;
-  display: inline;
+  outline: none;
+  border: 0px solid;
+  height: 30px;
+  border-radius: 8px;
+  padding-left: 10px;
+  box-shadow: inset 1px 1px 2px 2px #888;
+  width: 200px;
+}
+
+input[type=password] {
+  background-color: white;
   outline: none;
   border: 0px solid;
   height: 30px;
@@ -127,7 +174,6 @@ input[type=text] {
 
 input[type=number] {
   background-color: white;
-  display: inline;
   outline: none;
   border: 0px solid;
   height: 30px;
@@ -139,7 +185,6 @@ input[type=number] {
 
 input[type=url] {
   background-color: white;
-  display: inline;
   outline: none;
   border: 0px solid;
   height: 30px;
@@ -151,7 +196,7 @@ input[type=url] {
 
 input:hover, .broj-prikaza:hover, .broj-prikaza2:hover {
   box-shadow: inset 2px 2px 1px 1px #888;
-  transition-duration: 0.3s;
+  transition-duration: 0.2s;
 }
 
 #logo {
@@ -216,8 +261,7 @@ h6 {
 }
 
 .grid-container>div {
-  text-align: left;
-  padding: 10px 0;
+  /* text-align: left; */
   font-size: 30px;
 }
 
@@ -273,8 +317,8 @@ li a:hover:not(.active) {
 
 #movie-prikaz {
   padding-top: 20px;
-  padding-left: 100px;
-  padding-right: 100px;
+  padding-left: 150px;
+  padding-right: 150px;
 }
 
 .invisible-spoiler {
@@ -354,7 +398,7 @@ li a:hover:not(.active) {
     padding: 0;
   }
   #movie-prikaz {
-    display: flex;
+    /* display: flex; */
     justify-content: center;
   }
 }
@@ -387,7 +431,6 @@ li a:hover:not(.active) {
     display: block;
     margin: 0 auto;
     margin-top: 10px;
-
   }
 }
 
@@ -421,6 +464,10 @@ li a:hover:not(.active) {
     width: 250px;
     border: #888 1px solid;
     position: relative;
+  }
+  .single-naziv, .single-godina, .director, #starring, #single-reviews {
+    display: block;
+    width: 100%;
   }
 }
 
